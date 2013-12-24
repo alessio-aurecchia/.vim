@@ -1,3 +1,3 @@
-# Auri's Vim configuration
-A small repository containing my Vim configuration files
+# Auri's Vim Configuration
+A small repository to keep my Vim configuration files.
 
