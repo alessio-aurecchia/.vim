@@ -1,39 +1,31 @@
 
 " ====  VUNDLE  ===============================================================
 
-" Initialization stuff
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" let Vundle manage itself
-Bundle 'gmarik/vundle'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()"
 
-" Vundle packages
-Bundle 'AutoClose'
-Bundle 'DoxygenToolkit.vim'
-Bundle 'The-NERD-tree'
-Bundle 'Syntastic'
-Bundle 'Tabular'
-Bundle 'ScrollColors'
-Bundle 'https://github.com/itchyny/lightline.vim.git'
-Bundle 'vimlatex'
-Bundle 'surround.vim'
-Bundle 'Solarized'
-Bundle 'https://github.com/sickill/vim-monokai.git'
-Bundle 'chriskempson/base16-vim'
-Bundle 'ctrlp.vim'
-Bundle 'https://github.com/tomasr/molokai'
-Bundle 'https://github.com/scrooloose/nerdcommenter.git'
-Bundle 'thinkpixellab/flatland', { 'rtp': 'Vim/' }
-Bundle 'octol/vim-cpp-enhanced-highlight'
-Bundle 'https://github.com/Valloric/YouCompleteMe.git'
-Bundle 'https://github.com/hdima/python-syntax.git'
-Bundle 'https://github.com/matthewtodd/vim-twilight.git'
-Bundle 'https://github.com/tpope/vim-fugitive.git'
-Bundle 'https://github.com/SirVer/ultisnips.git'
-Bundle 'https://github.com/majutsushi/tagbar.git'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'AutoClose'
+Plugin 'Syntastic'
+Plugin 'Tabular'
+Plugin 'ScrollColors'
+Plugin 'vimlatex'
+Plugin 'surround.vim'
+Plugin 'chriskempson/base16-vim'
+Plugin 'ctrlp.vim'
+Plugin 'tomasr/molokai'
+Plugin 'nanotech/jellybeans.vim'
+Plugin 'hdima/python-syntax.git'
+Plugin 'tpope/vim-fugitive.git'
+
+" All of your Plugins must be added before the following line
+call vundle#end()
 filetype plugin indent on
 
 
@@ -56,7 +48,6 @@ endif
 set hidden
 
 " Enable spell check
-set spell
 set spelllang=en
 
 " 15 line offset when scrolling
@@ -248,18 +239,10 @@ set ofu=syntaxcomplete#Complete
 
 " ====  COLOR  ================================================================
 
-" Different themes for terminal/graphical Vim
-if has('gui_running')
-    set t_Co=256
+set t_Co=256
 
-    colorscheme base16-default
-    set background=dark
-else
-    set t_Co=16
-
-    colorscheme molokai
-    set background=dark
-endif
+colorscheme jellybeans
+set background=dark
 
 " change the color of column 80
 if v:version >= 703
@@ -280,14 +263,6 @@ let g:syntastic_warning_symbol = '•'
 let g:syntastic_cpp_check_header = 1
 let g:syntastic_cpp_no_include_search = 1
 
-" Doxygen:
-" Load Doxygen syntax (duh)
-let g:load_doxygen_syntax=1
-let g:doxygen_enhanced_colour = 0
-
-" Disable @brief in Doxygen (brief description ends at firs dot)
-let g:DoxygenToolkit_briefTag_pre = ""
-
 " Pandoc: Disable folds for pandoc
 let g:pandoc_no_folding = 1
 
@@ -296,31 +271,4 @@ let g:snippets_dir = "/home/auri/.vim/snippets"
 
 " Python: Better syntax highlighting
 let python_highlight_all = 1
-
-" YouCompleteMe: Set configuration file
-let g:ycm_global_ycm_extra_conf = '/home/auri/dotfiles/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
-
-" Ultisnips:
-" Set completion to work with YouCompleteMe
-function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
-    if g:ulti_expand_res == 0
-        if pumvisible()
-            return "\<C-n>"
-        else
-            call UltiSnips_JumpForwards()
-            if g:ulti_jump_forwards_res == 0
-               return "\<TAB>"
-            endif
-        endif
-    endif
-    return ""
-endfunction
-
-au BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-
-" Tagbar: map tagbar toggle
-map <C-t> ;TagbarToggle<CR>
 

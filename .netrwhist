@@ -1,0 +1,7 @@
+﻿let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/etc/apache2/conf-enabled'
+let g:netrw_dirhist_2='/etc/apache2'
+let g:netrw_dirhist_3='/etc/apache2/mods-available'
+let g:netrw_dirhist_4='/etc/apache2'
+let g:netrw_dirhist_5='/etc/apache2/sites-available'
