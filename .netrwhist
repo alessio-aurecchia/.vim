@@ -1,7 +1,11 @@
 ﻿let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/etc/apache2/conf-enabled'
-let g:netrw_dirhist_2='/etc/apache2'
-let g:netrw_dirhist_3='/etc/apache2/mods-available'
-let g:netrw_dirhist_4='/etc/apache2'
-let g:netrw_dirhist_5='/etc/apache2/sites-available'
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/home/auri/repos'
+let g:netrw_dirhist_2='/home/auri/repos/progver_project_3'
+let g:netrw_dirhist_3='/home/auri/repos/progver_project_3/02_QuickSort'
+let g:netrw_dirhist_4='/home/auri/repos/progver_project_3'
+let g:netrw_dirhist_5='/home/auri/repos'
+let g:netrw_dirhist_6='/home/auri/repos/PA2017'
+let g:netrw_dirhist_7='/home/auri/repos/PA2017/proj2017'
+let g:netrw_dirhist_8='/home/auri/repos/PA2017/proj2017/src'
+let g:netrw_dirhist_9='/home/auri/repos/progver_project_3/02_QuickSort'
